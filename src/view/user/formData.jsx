@@ -44,12 +44,10 @@ const FormData = ({ isOpen, onClose }) => {
       });
       const result = await response.json();
       console.log(result);
-      // You might want to do something with the result here
     } catch (error) {
       console.error('Error:', error);
     }
 
-    // Close the popup after submission
     onClose();
   };
 

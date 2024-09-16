@@ -21,8 +21,8 @@ const TableView = ({ columns, data }) => {
                   <td key={colIndex} className="px-4 py-2 border text-gray-700">
                     {/* Check if accessor is a function, otherwise treat it as a key */}
                     {typeof column.accessor === 'function'
-                      ? column.accessor(row) // Call the accessor function
-                      : row[column.accessor]} {/* Access the property */}
+                      ? column.accessor(row)
+                      : row[column.accessor]}
                   </td>
                 ))}
               </tr>

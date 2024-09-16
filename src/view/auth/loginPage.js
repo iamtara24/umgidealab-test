@@ -1,4 +1,3 @@
-// src/view/auth/loginPage.jsx
 import React from 'react';
 
 const LoginPage = ({ email, setEmail, password, setPassword, error, handleLogin }) => {

@@ -5,6 +5,7 @@ import ProtectedRoute from '../utils/protectingRoute';
 
 // Lazy loading
 const LoginPage = lazy(() => import('../view/auth'));
+const HomePage = lazy(() => import('../view/landingPage'));
 const UserManagement = lazy(() => import('../view/user'));
 const CategoryManagement = lazy(() => import('../view/manCategory'));
 const ProductManagement = lazy(() => import('../view/manProduct'));
@@ -14,6 +15,10 @@ function AppRoutes() {
     {
       path: '/',
       element: <LoginPage />,
+    },
+    {
+      path: '/homepage',
+      element: <HomePage />,
     },
     {
       path: '/',
@@ -32,7 +37,6 @@ function AppRoutes() {
         { path: 'man-user', element: <UserManagement /> },
         { path: 'man-category', element: <CategoryManagement /> },
         { path: 'man-product', element: <ProductManagement /> },
-        // another route here
       ],
     },
     {

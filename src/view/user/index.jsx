@@ -12,20 +12,16 @@ const UserList = () => {
   const [isEditOpen, setEditOpen] = useState(false);
   const [userToEdit, setUserToEdit] = useState(null);
   const [alert, setAlert] = useState({ message: '', type: '' });
-  const limit = 5; // Limit per page
+  const limit = 5;
   
   // Fetch data only with limit, without using page
   const { data, isLoading, error, refetch } = useFetchData('https://fakestoreapi.com/users', limit);
   
-  // If loading, show loading state
   if (isLoading) return <div>Loading...</div>;
-  // If error, show error state
   if (error) return <div>Error: {error.message}</div>;
 
-  // Calculate total pages based on data length
   const totalPages = Math.ceil(data.length / limit);
 
-  // Get data for current page (manually slicing data for pagination)
   const paginatedData = data.slice((page - 1) * limit, page * limit);
 
   // Handle edit and delete actions
@@ -47,7 +43,7 @@ const UserList = () => {
     .then(() => {
       setAlert({ message: 'User updated successfully!', type: 'success' });
       setEditOpen(false);
-      refetch(); // Refresh data after update
+      refetch();
     })
     .catch(() => {
       setAlert({ message: 'Failed to update user.', type: 'error' });
@@ -74,7 +70,7 @@ const UserList = () => {
   { Header: 'ID', accessor: 'id' },
   { 
     Header: 'Name', 
-    accessor: row => `${row.name.firstname} ${row.name.lastname}` // Adjusted to fetch name from the nested object
+    accessor: row => `${row.name.firstname} ${row.name.lastname}`
   },
   { Header: 'Email', accessor: 'email' },
   {
@@ -120,8 +116,8 @@ const UserList = () => {
 
       {/* Table Section with max height */}
       <div className="bg-white shadow-md rounded-lg p-4 mb-4">
-        <div className="overflow-y-auto max-h-80"> {/* Max height and scrollable */}
-          <TableView columns={columns} data={data} /> {/* Display fetched data */}
+        <div className="overflow-y-auto max-h-80">
+          <TableView columns={columns} data={data} />
         </div>
       </div>
 

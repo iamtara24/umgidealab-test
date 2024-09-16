@@ -1,4 +1,3 @@
-// src/view/user/editFormData.jsx
 import React, { useState, useEffect } from 'react';
 
 const EditFormData = ({ isOpen, onClose, userToEdit, onSave }) => {
@@ -29,7 +28,7 @@ const EditFormData = ({ isOpen, onClose, userToEdit, onSave }) => {
       }
     };
     onSave(id, userData);
-    onClose(); // Close the popup on form submission
+    onClose();
   };
 
   if (!isOpen) return null;

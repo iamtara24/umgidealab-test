@@ -1,16 +1,16 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
-// Menghapus page dari parameter URL
+// Delete page from URL param
 const fetchData = async (url, limit) => {
   const response = await axios.get(`${url}?limit=${limit}`);
   return response.data;
 };
 
-// Menghilangkan page dari queryKey, dan menyesuaikan fungsi query
+// delete page from queryKey, and adjust func query
 export const useFetchData = (endpoint, limit = 10) => {
   return useQuery({
-    queryKey: [endpoint, limit],  // Hanya menggunakan endpoint dan limit
+    queryKey: [endpoint, limit],
     queryFn: () => fetchData(endpoint, limit),
   });
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginPage from './loginPage';
+import Header from './header';
 
 const Index = () => {
   const [email, setEmail] = useState('');
@@ -19,14 +20,17 @@ const Index = () => {
   };
 
   return (
-    <LoginPage
-      email={email}
-      setEmail={setEmail}
-      password={password}
-      setPassword={setPassword}
-      error={error}
-      handleLogin={handleLogin}
-    />
+    <>
+      <Header />
+      <LoginPage
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+        error={error}
+        handleLogin={handleLogin}
+      />
+    </>
   );
 };
 
